@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wks-grensinfo-o
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: wks-grensinfo-o
+  template:
+    metadata:
+      labels:
+        app: wks-grensinfo-o
+    spec:
+      containers:
+        - image: docker.io/huizecavia/simpel
+          name: wks-grensinfo-o
+          ports:
+            - containerPort: 8080
